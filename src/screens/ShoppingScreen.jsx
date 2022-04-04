@@ -1,13 +1,14 @@
+// npm
+import { useContext } from "react";
 // components
 import Modal from "../components/Modal";
+// context
+import { TaskContext } from "../contexts/TaskContext";
 
-export default function ShoppingScreen({
-  lists,
-  setLists,
-  isModal,
-  setIsModal,
-}) {
-  const showListItems = lists.map((item) => (
+export default function ShoppingScreen({ isModal, setIsModal }) {
+  const { items } = useContext(TaskContext);
+
+  const showListItems = items.map((item) => (
     <div key={item.id}>
       <li>
         {item.name} {item.price}
@@ -20,12 +21,7 @@ export default function ShoppingScreen({
       <h2>Shopping Screen</h2>
       {showListItems}
       <button onClick={() => setIsModal(true)}>Add Task</button>
-      <Modal
-        isModal={isModal}
-        setIsModal={setIsModal}
-        lists={lists}
-        setLists={setLists}
-      />
+      <Modal isModal={isModal} setIsModal={setIsModal} />
     </section>
   );
 }

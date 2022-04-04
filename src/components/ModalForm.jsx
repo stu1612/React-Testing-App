@@ -1,25 +1,28 @@
 // npm
-import { useState } from "react";
+import { useContext, useState } from "react";
+// context
+import { TaskContext } from "../contexts/TaskContext";
 
-export default function ModalForm({ lists, setLists, setIsModal }) {
+export default function ModalForm({ setIsModal }) {
+  const { items, setItems } = useContext(TaskContext);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
   // submit function - not ready yet
   function handleSubmit(event) {
     event.preventDefault();
-    addTask(lists, setLists);
+    addTask(items, setItems);
     setIsModal(false);
     resetInputs(setName, setPrice);
   }
 
-  function addTask(lists, setLists) {
+  function addTask(items, setItems) {
     const newItem = {
       id: Math.random() * 1000,
       name: name,
       price: price,
     };
-    return setLists([...lists, newItem]);
+    return setItems([...items, newItem]);
   }
 
   function resetInputs({ setName, setPrice }) {
