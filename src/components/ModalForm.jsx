@@ -1,13 +1,30 @@
 // npm
 import { useState } from "react";
 
-export default function ModalForm() {
+export default function ModalForm({ lists, setLists, setIsModal }) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
   // submit function - not ready yet
   function handleSubmit(event) {
-    event.preventDaefult();
+    event.preventDefault();
+    addTask(lists, setLists);
+    setIsModal(false);
+    resetInputs(setName, setPrice);
+  }
+
+  function addTask(lists, setLists) {
+    const newItem = {
+      id: Math.random() * 1000,
+      name: name,
+      price: price,
+    };
+    return setLists([...lists, newItem]);
+  }
+
+  function resetInputs({ setName, setPrice }) {
+    setName("");
+    setPrice("");
   }
 
   return (
@@ -32,6 +49,7 @@ export default function ModalForm() {
           placeholder="Ex: 300"
         />
       </label>
+      <button>Submit</button>
     </form>
   );
 }

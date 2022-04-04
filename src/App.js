@@ -27,7 +27,12 @@ export default function App() {
   return (
     <div className="App">
       {/* <WelcomeScreen isModal={isModal} setIsModal={setIsModal}/> */}
-      <ShoppingScreen lists={lists} isModal={isModal} setIsModal={setIsModal} />
+      <ShoppingScreen
+        lists={lists}
+        setLists={setLists}
+        isModal={isModal}
+        setIsModal={setIsModal}
+      />
     </div>
   );
 }

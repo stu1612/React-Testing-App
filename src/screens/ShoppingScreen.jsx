@@ -1,7 +1,12 @@
 // components
 import Modal from "../components/Modal";
 
-export default function ShoppingScreen({ lists, isModal, setIsModal }) {
+export default function ShoppingScreen({
+  lists,
+  setLists,
+  isModal,
+  setIsModal,
+}) {
   const showListItems = lists.map((item) => (
     <div key={item.id}>
       <li>
@@ -15,7 +20,12 @@ export default function ShoppingScreen({ lists, isModal, setIsModal }) {
       <h2>Shopping Screen</h2>
       {showListItems}
       <button onClick={() => setIsModal(true)}>Add Task</button>
-      <Modal isModal={isModal} setIsModal={setIsModal} />
+      <Modal
+        isModal={isModal}
+        setIsModal={setIsModal}
+        lists={lists}
+        setLists={setLists}
+      />
     </section>
   );
 }
