@@ -1,11 +1,17 @@
+// npm
 import { useState } from "react";
 
 export default function ModalForm() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
+  // submit function - not ready yet
+  function handleSubmit(event) {
+    event.preventDaefult();
+  }
+
   return (
-    <form action="">
+    <form onSubmit={handleSubmit}>
       <label>
         Add Product Name:
         <input

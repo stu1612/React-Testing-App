@@ -1,12 +1,7 @@
-// npm
-import { useState } from "react";
-
 // components
 import Modal from "../components/Modal";
 
-export default function WelcomeScreen() {
-  const [isModal, setIsModal] = useState(false);
-
+export default function WelcomeScreen({ isModal, setIsModal }) {
   return (
     <section id="welcome-screen">
       <div className="title">
@@ -19,8 +14,7 @@ export default function WelcomeScreen() {
         </p>
         <p>
           To get started press the Add new item button and a popup will ask you
-          the name and the price of the item you want to add. You can also add
-          an image!
+          the name and the price of the item you want to add.
         </p>
         <button onClick={() => setIsModal(true)}>Add task</button>
         <Modal isModal={isModal} setIsModal={setIsModal} />
