@@ -17,6 +17,6 @@ label {
 }
 
 small {
-  font-size: clamp(1.4em, 5vw, 1.8em);
-  line-height: clamp(2.1em, 5vw, 2.7em);
+  font-size: 10px;
+  line-height: 15px;
 }

@@ -9,17 +9,15 @@ export default function ShoppingScreen({ isModal, setIsModal }) {
   const { items } = useContext(TaskContext);
 
   const showListItems = items.map((item) => (
-    <div key={item.id}>
-      <li>
-        {item.name} {item.price}
-      </li>
-    </div>
+    <li key={item.id}>
+      {item.name} {item.price}
+    </li>
   ));
 
   return (
     <section id="shopping-screen">
       <h2>Shopping Screen</h2>
-      {showListItems}
+      <ul>{showListItems}</ul>
       <button onClick={() => setIsModal(true)}>Add Task</button>
       <Modal isModal={isModal} setIsModal={setIsModal} />
     </section>
