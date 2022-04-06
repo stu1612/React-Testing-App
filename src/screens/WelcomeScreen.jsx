@@ -1,5 +1,5 @@
 // components
-import Modal from "../components/Modal";
+import Modal from "../components/Portal";
 
 export default function WelcomeScreen({ isModal, setIsModal }) {
   return (

@@ -1,7 +1,5 @@
 // npm
-import { useContext, useState } from "react";
-// context
-import { TaskContext } from "../contexts/TaskContext";
+import { useState } from "react";
 // utils
 import validateString from "../utils/validateString";
 import validateNumber from "../utils/validateNumber";
@@ -10,25 +8,26 @@ import Input from "./Input";
 // data
 import formInput from "../data/db.json";
 
-export default function ModalForm({ setIsModal }) {
-  const { items, setItems } = useContext(TaskContext);
+export default function ModalForm({ modalState, listState }) {
+  const [isModal, setIsModal] = modalState;
+  const [lists, setLists] = listState;
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
-    addTask(items, setItems);
+    addTask(lists, setLists);
     setIsModal(false);
     resetInputs();
   }
 
-  function addTask(items, setItems) {
+  function addTask(lists, setLists) {
     const newItem = {
       id: Math.random() * 1000,
       name: name,
       price: price,
     };
-    return setItems([...items, newItem]);
+    return setLists([...lists, newItem]);
   }
 
   function resetInputs() {
@@ -37,7 +36,8 @@ export default function ModalForm({ setIsModal }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} data-testid="modal-form">
+      <h2>Add new shopping item</h2>
       <Input
         settings={formInput.name}
         state={[name, setName]}

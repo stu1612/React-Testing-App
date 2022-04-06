@@ -1,6 +1,5 @@
 //npm
 import { useState } from "react";
-import { TaskContextProvider } from "./contexts/TaskContext";
 import ShoppingScreen from "./screens/ShoppingScreen";
 // screens
 import WelcomeScreen from "./screens/WelcomeScreen";
@@ -10,11 +9,26 @@ import "./styles/styles.css";
 
 export default function App() {
   const [isModal, setIsModal] = useState(false);
+  const [lists, setLists] = useState([
+    {
+      id: Math.random() * 1000,
+      name: "Chair",
+      price: 300,
+    },
+    {
+      id: Math.random() * 1000,
+      name: "Table",
+      price: 750,
+    },
+  ]);
 
   return (
-    <TaskContextProvider>
-      {/* <WelcomeScreen isModal={isModal} setIsModal={setIsModal}/> */}
-      <ShoppingScreen isModal={isModal} setIsModal={setIsModal} />
-    </TaskContextProvider>
+    <div>
+      {/* <WelcomeScreen /> */}
+      <ShoppingScreen
+        modalState={[isModal, setIsModal]}
+        listState={[lists, setLists]}
+      />
+    </div>
   );
 }

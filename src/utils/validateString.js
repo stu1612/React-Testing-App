@@ -1,4 +1,4 @@
-export default function validateName(string) {
+export default function validateString(string) {
   const trimmedString = string.trim();
   const validatedString = trimmedString.length > 2;
   const data = validatedString ? trimmedString : "";

@@ -1,13 +1,13 @@
 {
   "name": {
-    "autofocus": true,
+    "autoFocus": true,
     "label": "Product name",
     "placeholder": "Sofa",
     "required": true,
     "type": "text"
   },
   "price": {
-    "autofocus": false,
+    "autoFocus": false,
     "label": "Product price",
     "max": 9999,
     "min": 1,
