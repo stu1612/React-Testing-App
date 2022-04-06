@@ -1,7 +1,14 @@
+// npm
 // components
-import Modal from "../components/Portal";
+import Modal from "../components/Modal";
 
-export default function WelcomeScreen({ isModal, setIsModal }) {
+export default function WelcomeScreen({ listState, modalState }) {
+  const [isModal, setIsModal] = modalState;
+
+  const showModal = isModal && (
+    <Modal modalState={modalState} listState={listState} />
+  );
+
   return (
     <section id="welcome-screen">
       <div className="title">
@@ -17,7 +24,7 @@ export default function WelcomeScreen({ isModal, setIsModal }) {
           the name and the price of the item you want to add.
         </p>
         <button onClick={() => setIsModal(true)}>Add task</button>
-        <Modal isModal={isModal} setIsModal={setIsModal} />
+        {showModal}
       </div>
     </section>
   );

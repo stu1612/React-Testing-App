@@ -7,9 +7,10 @@ export default function Modal({ modalState, listState }) {
   const [isModal, setIsModal] = modalState;
 
   if (isModal === false) return null;
+
   return ReactDOM.createPortal(
     <div className="modal-background">
-      <ModalForm modalState={modalState} listState={listState} />
+      <ModalForm listState={listState} modalState={modalState} />
     </div>,
     document.body
   );

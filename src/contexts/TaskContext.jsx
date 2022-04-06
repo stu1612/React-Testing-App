@@ -15,9 +15,14 @@ export function TaskContextProvider({ children }) {
       price: 750,
     },
   ]);
+  const [isModal, setIsModal] = useState(false);
+
+  function toggleModal() {
+    setIsModal(!isModal);
+  }
 
   return (
-    <TaskContext.Provider value={{ items, setItems }}>
+    <TaskContext.Provider value={{ items, setItems, toggleModal, isModal }}>
       {children}
     </TaskContext.Provider>
   );

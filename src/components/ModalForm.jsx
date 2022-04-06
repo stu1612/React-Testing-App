@@ -8,7 +8,7 @@ import Input from "./Input";
 // data
 import formInput from "../data/db.json";
 
-export default function ModalForm({ modalState, listState }) {
+export default function ModalForm({ listState, modalState }) {
   const [isModal, setIsModal] = modalState;
   const [lists, setLists] = listState;
   const [name, setName] = useState("");

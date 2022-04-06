@@ -1,22 +1,19 @@
 // components
-import Portal from "../components/Portal";
+import ListItem from "../components/ListItem";
+import Modal from "../components/Modal";
 
 export default function ShoppingScreen({ modalState, listState }) {
   const [isModal, setIsModal] = modalState;
   const [lists, setLists] = listState;
 
-  const listItems = lists.map((item) => (
-    <li key={item.id}>
-      {item.name} {item.price}
-    </li>
-  ));
+  const listItems = lists.map((item) => <ListItem key={item.id} item={item} />);
 
   return (
     <section id="shopping-screen">
       <h2>Shopping Screen</h2>
-      <ul>{listItems}</ul>
+      {listItems}
       <button onClick={() => setIsModal(true)}>Add Task</button>
-      <Portal modalState={modalState} listState={listState} />
+      <Modal modalState={modalState} listState={listState} />
     </section>
   );
 }
