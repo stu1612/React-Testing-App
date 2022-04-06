@@ -1,7 +1,6 @@
 // npm
 import { useState } from "react";
 import PropTypes from "prop-types";
-
 // utils
 import onValidate from "../utils/onValidate";
 

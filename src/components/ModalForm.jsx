@@ -1,12 +1,11 @@
 // npm
 import { useState, useContext } from "react";
+import { TaskContext } from "../contexts/TaskContext";
 // utils
 import validateString from "../utils/validateString";
 import validateNumber from "../utils/validateNumber";
 // components
 import Input from "./Input";
-// context
-import { TaskContext } from "../contexts/TaskContext";
 // data
 import formInput from "../data/db.json";
 
