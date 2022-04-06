@@ -1,51 +1,24 @@
 //npm
-import { useState, useEffect } from "react";
-import ShoppingScreen from "./screens/ShoppingScreen";
+import { useState, useContext } from "react";
 // screens
 import WelcomeScreen from "./screens/WelcomeScreen";
-
+import ShoppingScreen from "./screens/ShoppingScreen";
+// context
+import { TaskContext } from "./contexts/TaskContext";
 // styles
 import "./styles/styles.css";
 
 export default function App() {
-  const storageKey = "shopping-list";
+  const { lists } = useContext(TaskContext);
   const [isModal, setIsModal] = useState(false);
-  const [lists, setLists] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem(storageKey)) ?? [];
-    } catch {
-      return [];
-    }
-  });
-
-  useEffect(() => {
-    localStorage.setItem(storageKey, JSON.stringify(lists));
-  }, [lists]);
-  // {
-  //   id: Math.random() * 1000,
-  //   name: "Chair",
-  //   price: 300,
-  // },
-  // {
-  //   id: Math.random() * 1000,
-  //   name: "Table",
-  //   price: 750,
-  // },
-  // ]);
 
   return (
     <div>
       {lists.length === 0 && (
-        <WelcomeScreen
-          modalState={[isModal, setIsModal]}
-          listState={[lists, setLists]}
-        />
+        <WelcomeScreen modalState={[isModal, setIsModal]} />
       )}
       {lists.length > 0 && (
-        <ShoppingScreen
-          modalState={[isModal, setIsModal]}
-          listState={[lists, setLists]}
-        />
+        <ShoppingScreen modalState={[isModal, setIsModal]} />
       )}
     </div>
   );

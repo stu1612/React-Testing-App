@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 // components
 import ModalForm from "./ModalForm";
 
-export default function Modal({ modalState, listState }) {
+export default function Modal({ modalState }) {
   const [isModal, setIsModal] = modalState;
 
   if (isModal === false) return null;
 
   return ReactDOM.createPortal(
     <div className="modal-background">
-      <ModalForm listState={listState} modalState={modalState} />
+      <ModalForm modalState={modalState} />
     </div>,
     document.body
   );

@@ -1,13 +1,10 @@
-// npm
 // components
 import Modal from "../components/Modal";
 
-export default function WelcomeScreen({ listState, modalState }) {
+export default function WelcomeScreen({ modalState }) {
   const [isModal, setIsModal] = modalState;
 
-  const showModal = isModal && (
-    <Modal modalState={modalState} listState={listState} />
-  );
+  const showModal = isModal && <Modal modalState={modalState} />;
 
   return (
     <section id="welcome-screen">
