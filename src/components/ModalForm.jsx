@@ -1,6 +1,5 @@
 // npm
-import { useState, useContext } from "react";
-import { TaskContext } from "../contexts/TaskContext";
+import { useState } from "react";
 // utils
 import validateString from "../utils/validateString";
 import validateNumber from "../utils/validateNumber";
@@ -9,16 +8,27 @@ import Input from "./Input";
 // data
 import formInput from "../data/db.json";
 
-export default function ModalForm() {
-  const { addTask, toggleModal } = useContext(TaskContext);
+export default function ModalForm({ listState, modalState }) {
+  const [lists, setLists] = listState;
+  const [modal, setModal] = modalState;
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
     addTask(name, price);
-    toggleModal();
+    setModal(false);
     resetInputs();
+  }
+
+  function addTask(name, price) {
+    const newTask = {
+      id: Math.random() * 1000,
+      name: name,
+      price: price,
+      isCompleted: false,
+    };
+    return setLists([...lists].concat(newTask));
   }
 
   function resetInputs() {
@@ -42,7 +52,7 @@ export default function ModalForm() {
         />
         <button>Submit</button>
       </form>
-      <button onClick={toggleModal}>Close</button>
+      <button onClick={() => setModal(false)}>Close</button>
     </div>
   );
 }

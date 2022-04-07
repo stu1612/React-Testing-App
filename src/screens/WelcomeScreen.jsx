@@ -1,15 +1,10 @@
-// npm
-import { useContext } from "react";
-// components
-import { TaskContext } from "../contexts/TaskContext";
-
-export default function WelcomeScreen() {
-  const { toggleModal } = useContext(TaskContext);
+export default function WelcomeScreen({ modalState }) {
+  const [isModal, setIsModal] = modalState;
 
   return (
     <section id="welcome-screen">
       <div className="title">
-        <h1>Shopping List</h1>
+        <h1>Welcome to Eika Shopping</h1>
       </div>
       <div className="content">
         <p>
@@ -20,7 +15,7 @@ export default function WelcomeScreen() {
           To get started press the Add new item button and a popup will ask you
           the name and the price of the item you want to add.
         </p>
-        <button onClick={toggleModal}>Add task</button>
+        <button onClick={() => setIsModal(true)}>Add task</button>
       </div>
     </section>
   );
