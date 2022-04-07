@@ -1,25 +1,24 @@
 //npm
-import { useState, useContext } from "react";
+import { useContext } from "react";
 // screens
 import WelcomeScreen from "./screens/WelcomeScreen";
 import ShoppingScreen from "./screens/ShoppingScreen";
-// context
+// components
+import Modal from "./components/Modal";
 import { TaskContext } from "./contexts/TaskContext";
 // styles
 import "./styles/styles.css";
 
 export default function App() {
-  const { lists } = useContext(TaskContext);
-  const [isModal, setIsModal] = useState(false);
+  const { lists, isModal } = useContext(TaskContext);
+
+  const showModal = isModal ? <Modal /> : null;
 
   return (
     <div>
-      {lists.length === 0 && (
-        <WelcomeScreen modalState={[isModal, setIsModal]} />
-      )}
-      {lists.length > 0 && (
-        <ShoppingScreen modalState={[isModal, setIsModal]} />
-      )}
+      {lists.length === 0 && <WelcomeScreen />}
+      {lists.length > 0 && <ShoppingScreen />}
+      {showModal}
     </div>
   );
 }

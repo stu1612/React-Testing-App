@@ -4,6 +4,7 @@ export const TaskContext = createContext();
 
 export function TaskContextProvider({ children }) {
   const storageKey = "localStorage";
+  const [isModal, setIsModal] = useState(false);
   const [lists, setLists] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem(storageKey)) ?? [];
@@ -40,8 +41,21 @@ export function TaskContextProvider({ children }) {
     );
   }
 
+  function toggleModal() {
+    return setIsModal(!isModal);
+  }
+
   return (
-    <TaskContext.Provider value={{ lists, setLists, addTask, completeTask }}>
+    <TaskContext.Provider
+      value={{
+        lists,
+        setLists,
+        addTask,
+        completeTask,
+        isModal,
+        toggleModal,
+      }}
+    >
       {children}
     </TaskContext.Provider>
   );

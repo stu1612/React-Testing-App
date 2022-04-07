@@ -9,16 +9,15 @@ import Input from "./Input";
 // data
 import formInput from "../data/db.json";
 
-export default function ModalForm({ modalState }) {
-  const { addTask } = useContext(TaskContext);
-  const [isModal, setIsModal] = modalState;
+export default function ModalForm() {
+  const { addTask, toggleModal } = useContext(TaskContext);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
     addTask(name, price);
-    setIsModal(false);
+    toggleModal();
     resetInputs();
   }
 
@@ -28,19 +27,22 @@ export default function ModalForm({ modalState }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} data-testid="modal-form">
-      <h2>Add new shopping item</h2>
-      <Input
-        settings={formInput.name}
-        state={[name, setName]}
-        validation={validateString}
-      />
-      <Input
-        settings={formInput.price}
-        state={[price, setPrice]}
-        validation={validateNumber}
-      />
-      <button>Submit</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit} data-testid="modal-form">
+        <h2>Add new shopping item</h2>
+        <Input
+          settings={formInput.name}
+          state={[name, setName]}
+          validation={validateString}
+        />
+        <Input
+          settings={formInput.price}
+          state={[price, setPrice]}
+          validation={validateNumber}
+        />
+        <button>Submit</button>
+      </form>
+      <button onClick={toggleModal}>Close</button>
+    </div>
   );
 }
