@@ -1,4 +1,4 @@
-// npma
+// npm
 import { useState } from "react";
 // components
 import ListItem from "../components/ListItem";
@@ -26,11 +26,15 @@ export default function ShoppingScreen({ listState, modalState }) {
         <ListItem key={item.id} item={item} listState={listState} />
       ));
 
+  // Safeguard
+  const noItemsInList = itemsList.length === 0 && "no shopping items found";
+
   return (
     <section id="shopping-screen">
       <h2>This is your shopping list</h2>
       <Sorter lists={lists} setLists={setLists} />
       <ul>{itemsList}</ul>
+      <p>{noItemsInList}</p>
       <button onClick={() => setIsModal(true)}>Add Task</button>
       <p onClick={toggleStatus}>{toggleDisplay}</p>
     </section>

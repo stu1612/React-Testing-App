@@ -9,5 +9,6 @@ export default function sortByName(getter, setter) {
     }
     return 0;
   });
-  setter(clonedList);
+  const data = setter(clonedList);
+  return { data: data };
 }

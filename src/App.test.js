@@ -31,9 +31,3 @@ test("the app should load on 'shopping screen' if more than 1 list item has been
   // Act
   expect(titleElement).toBeInTheDocument();
 });
-
-test("Modal should open when isModal state is set to TRUE", () => {
-  // arrange
-  // action
-  // assert
-});

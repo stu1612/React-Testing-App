@@ -11,7 +11,10 @@ export default function Modal({ listState, modalState }) {
 
   return ReactDOM.createPortal(
     <div className="modal-background">
-      <ModalForm listState={listState} modalState={modalState} />
+      <div className="modal">
+        <h2>Add new item</h2>
+        <ModalForm listState={listState} modalState={modalState} />
+      </div>
     </div>,
     document.body
   );

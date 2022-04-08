@@ -9,7 +9,7 @@ import Modal from "./components/Modal";
 import "./styles/styles.css";
 
 export default function App() {
-  const storageKey = "localStorage";
+  const [storageKey, setStorageKey] = useState("localStorage");
   const [isModal, setIsModal] = useState(false);
 
   // Safeguard - return empty array if no items (UI test #2)
@@ -23,7 +23,7 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem(storageKey, JSON.stringify(lists));
-  }, [lists]);
+  }, [lists, storageKey]);
 
   // Safeguard (UI test #3)
   const showModal = isModal ? (

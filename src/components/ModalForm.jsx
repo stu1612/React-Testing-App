@@ -17,21 +17,10 @@ export default function ModalForm({ listState, modalState }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // addTask(name, price);
     addTask(name, price, lists, setLists);
     setModal(false);
     resetInputs();
   }
-
-  // function addTask(name, price) {
-  //   const newTask = {
-  //     id: Math.random() * 1000,
-  //     name: name,
-  //     price: price,
-  //     isCompleted: false,
-  //   };
-  //   return setLists([...lists].concat(newTask));
-  // }
 
   function resetInputs() {
     setName("");
@@ -41,7 +30,6 @@ export default function ModalForm({ listState, modalState }) {
   return (
     <div>
       <form onSubmit={handleSubmit} data-testid="modal-form">
-        <h2>Add new shopping item</h2>
         <Input
           settings={formInput.name}
           state={[name, setName]}
