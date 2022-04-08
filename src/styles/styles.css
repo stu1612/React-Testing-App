@@ -11,8 +11,10 @@
 @import "./atoms/input.css";
 
 /* molecules */
-
 @import "./molecules/container.css";
+@import "./molecules/images.css";
+
 /* organisms */
+@import "./organisms/modal.css";
 
 /* templates */

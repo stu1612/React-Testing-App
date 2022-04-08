@@ -26,6 +26,7 @@ export default function Input({ settings, state, validation }) {
         required={required}
         max={max}
         min={min}
+        className="input"
       />
       <small>{errorMessage}</small>
     </label>

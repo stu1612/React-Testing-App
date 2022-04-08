@@ -1,6 +1,6 @@
 export default function ListItem({ item, listState }) {
   const [lists, setLists] = listState;
-  const { name, price, id, isCompleted } = item;
+  const { name, price, id, isCompleted, imgURL } = item;
 
   function onCompleteHandler() {
     completeTask(id);
@@ -21,7 +21,7 @@ export default function ListItem({ item, listState }) {
   }
 
   return (
-    <li>
+    <li className="list-item">
       <input
         type="checkbox"
         checked={isCompleted}
@@ -30,6 +30,7 @@ export default function ListItem({ item, listState }) {
       <span>
         {name} {price}
       </span>
+      <img src={imgURL} alt="" />
     </li>
   );
 }

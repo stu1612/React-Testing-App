@@ -28,7 +28,7 @@ export default function ModalForm({ listState, modalState }) {
   }
 
   return (
-    <div>
+    <div className="modal-form">
       <form onSubmit={handleSubmit} data-testid="modal-form">
         <Input
           settings={formInput.name}
@@ -40,9 +40,11 @@ export default function ModalForm({ listState, modalState }) {
           state={[price, setPrice]}
           validation={validateNumber}
         />
-        <button>Submit</button>
+        <button className="btn btn-primary">Submit</button>
       </form>
-      <button onClick={() => setModal(false)}>Close</button>
+      <button className="btn btn-secondary" onClick={() => setModal(false)}>
+        Close
+      </button>
     </div>
   );
 }

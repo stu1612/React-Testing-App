@@ -3,6 +3,8 @@ import { useState } from "react";
 // components
 import ListItem from "../components/ListItem";
 import Sorter from "../components/Sorter";
+// images
+import logo from "../assets/images/eika_logo.png";
 
 export default function ShoppingScreen({ listState, modalState }) {
   const [isCompleteStatus, setIsCompleteStatus] = useState(false);
@@ -30,13 +32,19 @@ export default function ShoppingScreen({ listState, modalState }) {
   const noItemsInList = itemsList.length === 0 && "no shopping items found";
 
   return (
-    <section id="shopping-screen">
-      <h2>This is your shopping list</h2>
-      <Sorter lists={lists} setLists={setLists} />
-      <ul>{itemsList}</ul>
-      <p>{noItemsInList}</p>
-      <button onClick={() => setIsModal(true)}>Add Task</button>
-      <p onClick={toggleStatus}>{toggleDisplay}</p>
+    <section className="container-768" id="shopping-screen">
+      <img src={logo} alt="eika branding logo" className="logo" />
+      <div className="container-content">
+        <h1>This is your shopping list</h1>
+        <Sorter lists={lists} setLists={setLists} />
+        <ul className="container-items">
+          {itemsList} {noItemsInList}
+        </ul>
+        <button className="btn btn-primary" onClick={() => setIsModal(true)}>
+          Add Task
+        </button>
+        <p onClick={toggleStatus}>{toggleDisplay}</p>
+      </div>
     </section>
   );
 }
