@@ -3,6 +3,7 @@ import { useState } from "react";
 // utils
 import validateString from "../utils/validateString";
 import validateNumber from "../utils/validateNumber";
+import addTask from "../utils/addTask";
 // components
 import Input from "./Input";
 // data
@@ -16,20 +17,21 @@ export default function ModalForm({ listState, modalState }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    addTask(name, price);
+    // addTask(name, price);
+    addTask(name, price, lists, setLists);
     setModal(false);
     resetInputs();
   }
 
-  function addTask(name, price) {
-    const newTask = {
-      id: Math.random() * 1000,
-      name: name,
-      price: price,
-      isCompleted: false,
-    };
-    return setLists([...lists].concat(newTask));
-  }
+  // function addTask(name, price) {
+  //   const newTask = {
+  //     id: Math.random() * 1000,
+  //     name: name,
+  //     price: price,
+  //     isCompleted: false,
+  //   };
+  //   return setLists([...lists].concat(newTask));
+  // }
 
   function resetInputs() {
     setName("");

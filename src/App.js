@@ -12,6 +12,7 @@ export default function App() {
   const storageKey = "localStorage";
   const [isModal, setIsModal] = useState(false);
 
+  // Safeguard - return empty array if no items (UI test #2)
   const [lists, setLists] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem(storageKey)) ?? [];
@@ -24,7 +25,7 @@ export default function App() {
     localStorage.setItem(storageKey, JSON.stringify(lists));
   }, [lists]);
 
-  // Safeguard ()
+  // Safeguard (UI test #3)
   const showModal = isModal ? (
     <Modal modalState={[isModal, setIsModal]} listState={[lists, setLists]} />
   ) : null;
@@ -32,10 +33,7 @@ export default function App() {
   return (
     <div>
       {lists.length === 0 && (
-        <WelcomeScreen
-          modalState={[isModal, setIsModal]}
-          listState={[lists, setLists]}
-        />
+        <WelcomeScreen modalState={[isModal, setIsModal]} />
       )}
       {lists.length > 0 && (
         <ShoppingScreen

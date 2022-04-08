@@ -6,6 +6,7 @@ import ModalForm from "./ModalForm";
 export default function Modal({ listState, modalState }) {
   const [isModal] = modalState;
 
+  // Safeguard
   if (isModal === false) return null;
 
   return ReactDOM.createPortal(

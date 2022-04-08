@@ -1,7 +1,7 @@
 // files
 import validateString from "./validateString";
 
-test("should pass is string value is validated", () => {
+test("should pass is string value is greater than 2 characters", () => {
   // arrange
   const testValidString = "Chair";
   const result = "Chair";
