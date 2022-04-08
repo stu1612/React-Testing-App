@@ -38,7 +38,7 @@ export default function ShoppingScreen({ listState, modalState }) {
       <img src={logo} alt="eika branding logo" className="logo" />
       <div className="container-content">
         <h1>This is your shopping list</h1>
-        <Sorter lists={lists} setLists={setLists} />
+        <Sorter listState={listState} />
         <ul className="container-lists">
           {itemsList} {noItemsInList}
         </ul>

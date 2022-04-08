@@ -2,7 +2,8 @@
 import sortByName from "../utils/sortByName";
 import sortByPrice from "../utils/sortByPrice";
 
-export default function Sorter({ lists, setLists }) {
+export default function Sorter({ listState }) {
+  const [lists, setLists] = listState;
   return (
     <section id="sorter">
       <span className="light">Sort by:</span>
