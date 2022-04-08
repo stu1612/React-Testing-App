@@ -4,10 +4,14 @@ import sortByPrice from "../utils/sortByPrice";
 
 export default function Sorter({ lists, setLists }) {
   return (
-    <section>
-      Sort by:
-      <button onClick={() => sortByName(lists, setLists)}>Name</button>
-      <button onClick={() => sortByPrice(lists, setLists)}>Price</button>
+    <section id="sorter">
+      <span className="light">Sort by:</span>
+      <button className="pills" onClick={() => sortByName(lists, setLists)}>
+        Name
+      </button>
+      <button className="pills" onClick={() => sortByPrice(lists, setLists)}>
+        Price
+      </button>
     </section>
   );
 }

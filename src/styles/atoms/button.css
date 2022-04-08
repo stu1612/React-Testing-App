@@ -32,3 +32,19 @@
   background-color: rgb(201, 201, 201);
   border-color: rgb(201, 201, 201);
 }
+
+.pills {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 0 1em;
+}
+
+.pills:hover {
+  background-color: rgb(165, 165, 165);
+}

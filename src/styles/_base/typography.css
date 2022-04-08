@@ -13,8 +13,11 @@ a,
 li,
 label {
   font-size: clamp(1.6em, 5vw, 2em);
-  /* line-height: clamp(2.4em, 5vw, 3em); */
   line-height: 1.8;
+}
+
+span {
+  padding-right: 1em;
 }
 
 small {
@@ -22,4 +25,9 @@ small {
   line-height: 15px;
   color: rgb(165, 20, 20);
   padding: 0.5em 0 0.5em 2em;
+}
+
+.light {
+  font-size: 12px;
+  font-weight: 300;
 }

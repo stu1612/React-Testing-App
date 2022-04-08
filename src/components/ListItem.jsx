@@ -1,6 +1,9 @@
+//npm
+import { BsImage } from "react-icons/bs";
+
 export default function ListItem({ item, listState }) {
   const [lists, setLists] = listState;
-  const { name, price, id, isCompleted, imgURL } = item;
+  const { name, price, id, isCompleted } = item;
 
   function onCompleteHandler() {
     completeTask(id);
@@ -22,15 +25,17 @@ export default function ListItem({ item, listState }) {
 
   return (
     <li className="list-item">
-      <input
-        type="checkbox"
-        checked={isCompleted}
-        onChange={onCompleteHandler}
-      />
-      <span>
-        {name} {price}
-      </span>
-      <img src={imgURL} alt="" />
+      <div className="list-content">
+        <input
+          type="checkbox"
+          checked={isCompleted}
+          onChange={onCompleteHandler}
+          className="checkbox"
+        />
+        <span>{name}</span>
+        <span>{price + " sek"}</span>
+      </div>
+      <BsImage size={28} />
     </li>
   );
 }

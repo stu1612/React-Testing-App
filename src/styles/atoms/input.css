@@ -22,3 +22,10 @@ label {
   border-color: var(--cl-dark);
   outline: none;
 }
+
+.checkbox {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  margin: 0 0.5em;
+}

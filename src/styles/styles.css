@@ -12,6 +12,7 @@
 
 /* molecules */
 @import "./molecules/container.css";
+@import "./molecules/listItem.css";
 @import "./molecules/images.css";
 
 /* organisms */

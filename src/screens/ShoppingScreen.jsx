@@ -29,7 +29,9 @@ export default function ShoppingScreen({ listState, modalState }) {
       ));
 
   // Safeguard
-  const noItemsInList = itemsList.length === 0 && "no shopping items found";
+  const noItemsInList = itemsList.length === 0 && (
+    <p>No shopping items found</p>
+  );
 
   return (
     <section className="container-768" id="shopping-screen">
@@ -37,13 +39,15 @@ export default function ShoppingScreen({ listState, modalState }) {
       <div className="container-content">
         <h1>This is your shopping list</h1>
         <Sorter lists={lists} setLists={setLists} />
-        <ul className="container-items">
+        <ul className="container-lists">
           {itemsList} {noItemsInList}
         </ul>
         <button className="btn btn-primary" onClick={() => setIsModal(true)}>
           Add Task
         </button>
-        <p onClick={toggleStatus}>{toggleDisplay}</p>
+        <p className="light cursor" onClick={toggleStatus}>
+          {toggleDisplay}
+        </p>
       </div>
     </section>
   );
