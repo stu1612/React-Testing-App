@@ -20,12 +20,15 @@
 
 .container-content {
   text-align: center;
+  width: min(90%, 600px);
+  margin: 0 auto;
 }
 
 .container-column {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 50px;
 }
 
 .container-lists {

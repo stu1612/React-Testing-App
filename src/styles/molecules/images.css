@@ -1,11 +1,12 @@
 .logo {
-  width: 60px;
+  width: 85px;
   height: 100%;
   object-fit: cover;
 }
 
 .banner {
   height: 100%;
-  width: 100%;
+  width: min(90%, 450px);
+  margin: 0 auto;
   object-fit: cover;
 }
